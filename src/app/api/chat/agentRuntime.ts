@@ -172,6 +172,13 @@ const getLlmOptionsFromPayload = (provider: string, payload: JWTPayload) => {
 
       return { apiKey };
     }
+    case ModelProvider.Novita: {
+      const { NOVITA_API_KEY } = getLLMConfig();
+
+      const apiKey = apiKeyManager.pick(payload?.apiKey || NOVITA_API_KEY);
+
+      return { apiKey };
+    }
     case ModelProvider.Baichuan: {
       const { BAICHUAN_API_KEY } = getLLMConfig();
 
@@ -183,6 +190,13 @@ const getLlmOptionsFromPayload = (provider: string, payload: JWTPayload) => {
       const { TAICHU_API_KEY } = getLLMConfig();
 
       const apiKey = apiKeyManager.pick(payload?.apiKey || TAICHU_API_KEY);
+
+      return { apiKey };
+    }
+    case ModelProvider.Ai360: {
+      const { AI360_API_KEY } = getLLMConfig();
+
+      const apiKey = apiKeyManager.pick(payload?.apiKey || AI360_API_KEY);
 
       return { apiKey };
     }

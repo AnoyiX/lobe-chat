@@ -1,4 +1,5 @@
 import {
+  Ai360,
   AiMass,
   Anthropic,
   Azure,
@@ -11,6 +12,7 @@ import {
   Minimax,
   Mistral,
   Moonshot,
+  Novita,
   Ollama,
   OpenAI,
   OpenRouter,
@@ -116,12 +118,20 @@ const ModelProviderIcon = memo<ModelProviderIconProps>(({ provider }) => {
       return <Stepfun size={20} />;
     }
 
+    case ModelProvider.Novita: {
+      return <Novita size={20} />;
+    }
+
     case ModelProvider.Baichuan: {
       return <Baichuan size={20} />;
     }
 
     case ModelProvider.Taichu: {
       return <AiMass size={20} />;
+    }
+
+    case ModelProvider.Ai360: {
+      return <Ai360 size={20} />;
     }
 
     default: {
