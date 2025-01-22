@@ -85,6 +85,7 @@ export interface AiProviderSettings {
    */
   sdkType?: AiProviderSDKType;
 
+  showAddNewModel?: boolean;
   /**
    * whether show api key in the provider config
    * so provider like ollama don't need api key field
@@ -192,6 +193,7 @@ export interface EnabledAiModel {
   config?: AiModelConfig;
   contextWindowTokens?: number;
   displayName?: string;
+  enabled?: boolean;
   id: string;
   providerId: string;
   sort?: number;
@@ -200,7 +202,7 @@ export interface EnabledAiModel {
 
 export interface AiProviderRuntimeConfig {
   fetchOnClient?: boolean;
-  keyVaults: Record<string, object>;
+  keyVaults: Record<string, string>;
   settings: AiProviderSettings;
 }
 

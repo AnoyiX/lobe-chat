@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       'gpt-tokenizer',
     ],
     webVitalsAttribution: ['CLS', 'LCP'],
+    webpackMemoryOptimizations: true,
   },
   async headers() {
     return [
@@ -164,8 +165,8 @@ const nextConfig: NextConfig = {
       source: '/welcome',
     },
   ],
-  serverExternalPackages: ['@electric-sql/pglite', 'sharp'],
-
+  // when external packages in dev mode with turbopack, this config will lead to bundle error
+  serverExternalPackages: isProd ? ['@electric-sql/pglite'] : undefined,
   transpilePackages: ['pdfjs-dist', 'mermaid'],
 
   webpack(config) {
